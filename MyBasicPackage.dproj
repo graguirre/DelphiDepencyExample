@@ -125,7 +125,6 @@
                     <Source Name="MainSource">MyBasicPackage.dpk</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="C:\Users\gonzaloaguirre\Documents\GitHub\TestDelphiSpring\BPL\MVC\Win32\Debug\MVC.bpl">File C:\Users\gonzaloaguirre\Documents\GitHub\TestDelphiSpring\BPL\MVC\Win32\Debug\MVC.bpl not found</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k200.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dclofficexp200.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
                 </Excluded_Packages>
