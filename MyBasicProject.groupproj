@@ -10,7 +10,7 @@
             <Dependencies>MyBasicPackage.dproj</Dependencies>
         </Projects>
         <Projects Include="MyBasicApp.dproj">
-            <Dependencies/>
+            <Dependencies>MyPackageTester.dproj</Dependencies>
         </Projects>
     </ItemGroup>
     <ProjectExtensions>
@@ -38,13 +38,13 @@
     <Target Name="MyPackageTester:Make" DependsOnTargets="MyBasicPackage:Make">
         <MSBuild Projects="MyPackageTester.dproj" Targets="Make"/>
     </Target>
-    <Target Name="MyBasicApp">
+    <Target Name="MyBasicApp" DependsOnTargets="MyPackageTester">
         <MSBuild Projects="MyBasicApp.dproj"/>
     </Target>
-    <Target Name="MyBasicApp:Clean">
+    <Target Name="MyBasicApp:Clean" DependsOnTargets="MyPackageTester:Clean">
         <MSBuild Projects="MyBasicApp.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="MyBasicApp:Make">
+    <Target Name="MyBasicApp:Make" DependsOnTargets="MyPackageTester:Make">
         <MSBuild Projects="MyBasicApp.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
