@@ -8,7 +8,15 @@ uses
   ;
 
 type
-  TTestingUnit = class
+ ITestingUnit = interface
+ ['{6A63E5AE-812B-45E8-8A2A-7C3B912B4869}']
+    procedure Setup;
+    procedure TearDown;
+    function TestDefaultValue : String;
+    function TestMessage1 : String;
+ end;
+
+  TTestingUnit = class(TInterfacedObject, ITestingUnit)
     private
       FBasicUnit : IMyUnit;
     public
@@ -16,6 +24,7 @@ type
       procedure Setup;
       procedure TearDown;
       function TestDefaultValue : String;
+      function TestMessage1 : String;
   end;
 
 implementation
@@ -47,7 +56,13 @@ begin
   Result := FBasicUnit.getMessage;
 end;
 
+function TTestingUnit.TestMessage1 : String;
+begin
+  FBasicUnit.setMessage('Message 1');
+  Result := FBasicUnit.getMessage;
+end;
+
 initialization
-  GlobalContainer.RegisterType<TTestingUnit>;
+  GlobalContainer.RegisterType<TTestingUnit>.Implements<ITestingUnit>;
   GlobalContainer.Build;
 end.

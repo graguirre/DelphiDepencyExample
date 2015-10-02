@@ -9,7 +9,7 @@ uses
 
 type
 
-TMyUnit = class
+TMyUnit = class(TInterfacedObject, IMyUnit)
   private
     FMsg : String;
   public
@@ -28,7 +28,7 @@ uses
 
 constructor TMyUnit.Create;
 begin
-  FMsg := 'this is a single message';
+  FMsg := 'this is the default message';
 end;
 
 function TMyUnit.getMessage: String;

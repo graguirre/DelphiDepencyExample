@@ -11,13 +11,17 @@ uses
   ;
 
 var
-  FTest : TTestingUnit;
+  FTest : ITestingUnit;
 begin
   try
-    FTest :=  ServiceLocator.GetService<TTestingUnit>;
+    FTest :=  ServiceLocator.GetService<ITestingUnit>;
 
     FTest.Setup;
-    Writeln(FTest.TestDefaultValue);
+    Writeln(FTest.TestDefaultValue); // asserts or something like that
+    FTest.TearDown;
+
+    FTest.Setup;
+    Writeln(FTest.TestMessage1); // asserts or something like that
     FTest.TearDown;
 
   except
