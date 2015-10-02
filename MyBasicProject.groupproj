@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{64C9DC78-3F1B-44BE-943E-4AF0BFB311BE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="MyBasicPackage.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MyPackageTester.dproj">
+            <Dependencies>MyBasicPackage.dproj</Dependencies>
+        </Projects>
+        <Projects Include="MyBasicApp.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="MyBasicPackage">
+        <MSBuild Projects="MyBasicPackage.dproj"/>
+    </Target>
+    <Target Name="MyBasicPackage:Clean">
+        <MSBuild Projects="MyBasicPackage.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MyBasicPackage:Make">
+        <MSBuild Projects="MyBasicPackage.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MyPackageTester" DependsOnTargets="MyBasicPackage">
+        <MSBuild Projects="MyPackageTester.dproj"/>
+    </Target>
+    <Target Name="MyPackageTester:Clean" DependsOnTargets="MyBasicPackage:Clean">
+        <MSBuild Projects="MyPackageTester.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MyPackageTester:Make" DependsOnTargets="MyBasicPackage:Make">
+        <MSBuild Projects="MyPackageTester.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MyBasicApp">
+        <MSBuild Projects="MyBasicApp.dproj"/>
+    </Target>
+    <Target Name="MyBasicApp:Clean">
+        <MSBuild Projects="MyBasicApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MyBasicApp:Make">
+        <MSBuild Projects="MyBasicApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="MyBasicPackage;MyPackageTester;MyBasicApp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="MyBasicPackage:Clean;MyPackageTester:Clean;MyBasicApp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="MyBasicPackage:Make;MyPackageTester:Make;MyBasicApp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
