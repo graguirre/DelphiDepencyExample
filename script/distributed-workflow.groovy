@@ -27,6 +27,7 @@ node  ('SlaveM') {
 println '----------------------------------------------------------------------------------------------------'
 
 node  ('SlaveG') {
+  unarchive mapping: ['**/*.dcu' : '.']
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
   bat 'build.bat MyBasicApp.dproj'
   archive '**/*.exe'
