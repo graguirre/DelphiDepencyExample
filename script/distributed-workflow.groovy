@@ -9,7 +9,7 @@
 	5- Script path: script/distributed-workflow.groovy
 	*/
 
-node ('SlaveM') { 
+node ('SlaveG') { 
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
   bat 'build.bat MyBasicPackage.dproj'
   archive '**/*.bpl, *.dcu'
@@ -25,7 +25,7 @@ node  ('SlaveG') {
 
 println '----------------------------------------------------------------------------------------------------'
 
-node  ('SlaveM') {
+node  ('SlaveG') {
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
   bat 'build.bat MyBasicApp.dproj'
   archive '**/*.exe'
