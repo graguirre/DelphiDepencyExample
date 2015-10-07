@@ -12,7 +12,7 @@
 node ('SlaveM') { 
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
   bat 'build.bat MyBasicPackage.dproj'
-  archive '**/*.bpl'
+  archive '**/*.bpl, *.dcu'
 }
 
 println '----------------------------------------------------------------------------------------------------'
@@ -20,7 +20,7 @@ println '-----------------------------------------------------------------------
 node  ('SlaveG') {
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
   bat 'build.bat MyPackageTester.dproj'
-  archive '**/*.bpl'
+  archive '**/*.bpl, *.dcu'
 }
 
 println '----------------------------------------------------------------------------------------------------'
