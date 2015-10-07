@@ -18,7 +18,7 @@ node ('SlaveG') {
 println '----------------------------------------------------------------------------------------------------'
 
 node  ('SlaveM') {
-  unarchive mapping: ['**/*.dcu']
+  unarchive mapping: ['**/*.dcu' : '.']
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
   bat 'build.bat MyPackageTester.dproj'
   archive '**/*.dcu'
