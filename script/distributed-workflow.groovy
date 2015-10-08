@@ -11,6 +11,7 @@
 
 node ('SlaveG') { 
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
+  bat 'mkdir Win32\Release'
   bat 'make MyBasicPackage.bpl'
   archive '**/*.bpl'
 }
