@@ -28,7 +28,7 @@ uses
 
 constructor TMyUnit.Create;
 begin
-  FMsg := 'this is the default message';
+  FMsg := 'this is the default message from MyBasicUnit';
 end;
 
 function TMyUnit.getMessage: String;

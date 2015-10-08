@@ -11,25 +11,25 @@
 
 node ('SlaveG') { 
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
-  bat 'build.bat MyBasicPackage.dproj'
-  archive '**/*.dcu'
+  bat 'make MyBasicPackage.bpl'
+  archive '**/*.bpl'
 }
 
 println '----------------------------------------------------------------------------------------------------'
 
 node  ('SlaveM') {
-  unarchive mapping: ['**/*.dcu' : '.']
+  unarchive mapping: ['**/*.bpl' : '.']
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
-  bat 'build.bat MyPackageTester.dproj'
+  bat 'make MyPackageTester.bpl'
   archive '**/*.dcu'
 }
 
 println '----------------------------------------------------------------------------------------------------'
 
-node  ('SlaveV') {
-  unarchive mapping: ['**/*.dcu' : '.']
+node  ('SlaveG') {
+  unarchive mapping: ['**/*.bpl' : '.']
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
-  bat 'build.bat MyBasicApp.dproj'
+  bat 'make MyBasicApp.exe'
   archive '**/*.exe'
 }
 
