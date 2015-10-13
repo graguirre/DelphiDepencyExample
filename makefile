@@ -9,7 +9,8 @@ RC=rc
 
 COMPDIR = -$O+
 OUTPUTDIR = -LE.\$(Platform)\$(Config)  -E.\$(Platform)\$(Config)
-PATHS = -I.\3rd-party-libs -O.\3rd-party-libs -R.\3rd-party-libs -U.\3rd-party-libs;.\$(Platform)\$(Config)
+PATHS = -I.\3rdparty\libs -U.\3rd-party\libs;.\$(Platform)\$(Config)
+#PATHS = -I.\3rdparty\libs -O.\3rd-party\libs -R.\3rd-party\libs -U.\3rd-party\libs;.\$(Platform)\$(Config)
 
 DFLAGS = $(COMPDIR) -DRELEASE -M -NSSystem;vlc;Winapi $(OUTPUTDIR) $(PATHS)
 
