@@ -12,6 +12,9 @@
         <Projects Include="MyBasicApp.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="DUnitXExample.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -47,14 +50,23 @@
     <Target Name="MyBasicApp:Make">
         <MSBuild Projects="MyBasicApp.dproj" Targets="Make"/>
     </Target>
+    <Target Name="DUnitXExample">
+        <MSBuild Projects="DUnitXExample.dproj"/>
+    </Target>
+    <Target Name="DUnitXExample:Clean">
+        <MSBuild Projects="DUnitXExample.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="DUnitXExample:Make">
+        <MSBuild Projects="DUnitXExample.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="MyBasicPackage;MyPackageTester;MyBasicApp"/>
+        <CallTarget Targets="MyBasicPackage;MyPackageTester;MyBasicApp;DUnitXExample"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="MyBasicPackage:Clean;MyPackageTester:Clean;MyBasicApp:Clean"/>
+        <CallTarget Targets="MyBasicPackage:Clean;MyPackageTester:Clean;MyBasicApp:Clean;DUnitXExample:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="MyBasicPackage:Make;MyPackageTester:Make;MyBasicApp:Make"/>
+        <CallTarget Targets="MyBasicPackage:Make;MyPackageTester:Make;MyBasicApp:Make;DUnitXExample:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

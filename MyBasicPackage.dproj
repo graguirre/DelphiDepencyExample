@@ -112,7 +112,7 @@
         <DCC_DcpOutput>.\$(Platform)\$(Config)</DCC_DcpOutput>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
-        <DCC_UnitSearchPath>.\$(Platform)\$(Config);.\3rd-party\libs;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_UnitSearchPath>.\$(Platform)\$(Config);.\3rd-party\libs;.\3rd-party\spring4d\Source\Base;.\3rd-party\spring4d\Source\Core\Container;$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_BplOutput>.\$(Platform)\$(Config)</DCC_BplOutput>
     </PropertyGroup>
     <ItemGroup>

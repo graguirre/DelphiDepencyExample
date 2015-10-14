@@ -43,4 +43,5 @@ end;
 
 initialization
   GlobalContainer.RegisterType<TMyUnit>.Implements<IMyUnit>;
+
 end.

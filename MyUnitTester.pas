@@ -3,11 +3,16 @@ unit MyUnitTester;
 interface
 
 uses
-  MyBasicUnit, // register class
-  MyBasicUnitInterface
+  Classes,
+  DUnitX.TestFramework,
+  SysUtils,
+  StrUtils,
+  MyBasicUnitInterface,
+  MyBasicUnit // register class
   ;
 
 type
+
  ITestingUnit = interface
  ['{6A63E5AE-812B-45E8-8A2A-7C3B912B4869}']
     procedure Setup;
@@ -16,14 +21,19 @@ type
     function TestMessage1 : String;
  end;
 
+  [TestFixture]
   TTestingUnit = class(TInterfacedObject, ITestingUnit)
     private
       FBasicUnit : IMyUnit;
     public
-      constructor Create;
+      [Setup]
       procedure Setup;
+      [Teardown]
       procedure TearDown;
+      [Test]
+      [TestCase('TestDefaultMessage','')]
       function TestDefaultValue : String;
+      [TestCase('TestRandomMessage','')]
       function TestMessage1 : String;
   end;
 
@@ -35,11 +45,6 @@ uses
   ;
 
 { TTestingUnit }
-
-constructor TTestingUnit.Create;
-begin
-  FBasicUnit := nil;
-end;
 
 procedure TTestingUnit.Setup;
 begin
@@ -65,4 +70,5 @@ end;
 initialization
   GlobalContainer.RegisterType<TTestingUnit>.Implements<ITestingUnit>;
   GlobalContainer.Build;
+  TDUnitX.RegisterTestFixture(TTestingUnit);
 end.
