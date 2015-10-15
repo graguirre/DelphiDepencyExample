@@ -1,6 +1,6 @@
 stage 'build'
 node {
-  bat 'rmdir /s /q 3rd-party'
+//  bat 'rmdir /s /q 3rd-party'
   git url: 'https://github.com/graguirre/DelphiDepencyExample.git'
   dir('3rd-party/DUnitX'){
     git url: 'https://github.com/VSoftTechnologies/DUnitX'
