@@ -101,3 +101,4 @@ $RECYCLE.BIN/
 *.lnk
 #*.res
 *.dcp
+Win32/Release/dunitx-results.xml
