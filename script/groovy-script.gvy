@@ -9,7 +9,8 @@ node {
     checkout([$class: 'GitSCM',
     branches: [[name: '*/master']],
     doGenerateSubmoduleConfigurations: false,
-    extensions: [[$class: 'SparseCheckoutPaths', sparseCheckoutPaths: [[path: 'Source/Base'], [path: 'Source/Core'], [path: 'Source/Extensions'], [path: 'Packages/DelphiXE6']]]],
+    extensions: [[$class: 'SparseCheckoutPaths',
+    sparseCheckoutPaths: [[path: 'Source/Base'], [path: 'Source/Core'], [path: 'Source/Extensions'], [path: 'Packages/DelphiXE6']]]],
     submoduleCfg: [],
     userRemoteConfigs: [[url: 'https://bitbucket.org/sglienke/spring4d.git']]])
   }
