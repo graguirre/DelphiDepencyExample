@@ -28,7 +28,7 @@ uses
 
 constructor TMyUnit.Create;
 begin
-  FMsg := 'this is the default message from MyBasicUnit';
+  FMsg := 'this is the default message from MyBasicUnit. rev. 2';
 end;
 
 function TMyUnit.getMessage: String;
@@ -43,5 +43,5 @@ end;
 
 initialization
   GlobalContainer.RegisterType<TMyUnit>.Implements<IMyUnit>;
-
+  GlobalContainer.Build;
 end.

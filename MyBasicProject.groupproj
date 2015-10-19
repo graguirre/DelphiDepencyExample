@@ -3,13 +3,19 @@
         <ProjectGuid>{64C9DC78-3F1B-44BE-943E-4AF0BFB311BE}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="MyBasicPackage.dproj">
+        <Projects Include="MyBasicPackageR.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="MyPackageTester.dproj">
+        <Projects Include="MyBasicPackageD.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="MyBasicApp.dproj">
+        <Projects Include="MyPackageTesterD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MyBasicAppD.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="MyBasicAppR.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="DUnitXExample.dproj">
@@ -23,32 +29,50 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="MyBasicPackage">
-        <MSBuild Projects="MyBasicPackage.dproj"/>
+    <Target Name="MyBasicPackageR">
+        <MSBuild Projects="MyBasicPackageR.dproj"/>
     </Target>
-    <Target Name="MyBasicPackage:Clean">
-        <MSBuild Projects="MyBasicPackage.dproj" Targets="Clean"/>
+    <Target Name="MyBasicPackageR:Clean">
+        <MSBuild Projects="MyBasicPackageR.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="MyBasicPackage:Make">
-        <MSBuild Projects="MyBasicPackage.dproj" Targets="Make"/>
+    <Target Name="MyBasicPackageR:Make">
+        <MSBuild Projects="MyBasicPackageR.dproj" Targets="Make"/>
     </Target>
-    <Target Name="MyPackageTester">
-        <MSBuild Projects="MyPackageTester.dproj"/>
+    <Target Name="MyBasicPackageD">
+        <MSBuild Projects="MyBasicPackageD.dproj"/>
     </Target>
-    <Target Name="MyPackageTester:Clean">
-        <MSBuild Projects="MyPackageTester.dproj" Targets="Clean"/>
+    <Target Name="MyBasicPackageD:Clean">
+        <MSBuild Projects="MyBasicPackageD.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="MyPackageTester:Make">
-        <MSBuild Projects="MyPackageTester.dproj" Targets="Make"/>
+    <Target Name="MyBasicPackageD:Make">
+        <MSBuild Projects="MyBasicPackageD.dproj" Targets="Make"/>
     </Target>
-    <Target Name="MyBasicApp">
-        <MSBuild Projects="MyBasicApp.dproj"/>
+    <Target Name="MyPackageTesterD">
+        <MSBuild Projects="MyPackageTesterD.dproj"/>
     </Target>
-    <Target Name="MyBasicApp:Clean">
-        <MSBuild Projects="MyBasicApp.dproj" Targets="Clean"/>
+    <Target Name="MyPackageTesterD:Clean">
+        <MSBuild Projects="MyPackageTesterD.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="MyBasicApp:Make">
-        <MSBuild Projects="MyBasicApp.dproj" Targets="Make"/>
+    <Target Name="MyPackageTesterD:Make">
+        <MSBuild Projects="MyPackageTesterD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MyBasicAppD">
+        <MSBuild Projects="MyBasicAppD.dproj"/>
+    </Target>
+    <Target Name="MyBasicAppD:Clean">
+        <MSBuild Projects="MyBasicAppD.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MyBasicAppD:Make">
+        <MSBuild Projects="MyBasicAppD.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="MyBasicAppR">
+        <MSBuild Projects="MyBasicAppR.dproj"/>
+    </Target>
+    <Target Name="MyBasicAppR:Clean">
+        <MSBuild Projects="MyBasicAppR.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="MyBasicAppR:Make">
+        <MSBuild Projects="MyBasicAppR.dproj" Targets="Make"/>
     </Target>
     <Target Name="DUnitXExample">
         <MSBuild Projects="DUnitXExample.dproj"/>
@@ -60,13 +84,13 @@
         <MSBuild Projects="DUnitXExample.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="MyBasicPackage;MyPackageTester;MyBasicApp;DUnitXExample"/>
+        <CallTarget Targets="MyBasicPackageR;MyBasicPackageD;MyPackageTesterD;MyBasicAppD;MyBasicAppR;DUnitXExample"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="MyBasicPackage:Clean;MyPackageTester:Clean;MyBasicApp:Clean;DUnitXExample:Clean"/>
+        <CallTarget Targets="MyBasicPackageR:Clean;MyBasicPackageD:Clean;MyPackageTesterD:Clean;MyBasicAppD:Clean;MyBasicAppR:Clean;DUnitXExample:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="MyBasicPackage:Make;MyPackageTester:Make;MyBasicApp:Make;DUnitXExample:Make"/>
+        <CallTarget Targets="MyBasicPackageR:Make;MyBasicPackageD:Make;MyPackageTesterD:Make;MyBasicAppD:Make;MyBasicAppR:Make;DUnitXExample:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

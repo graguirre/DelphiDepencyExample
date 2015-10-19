@@ -1,4 +1,4 @@
-program MyBasicApp;
+program MyBasicAppD;
 
 {$APPTYPE CONSOLE}
 
